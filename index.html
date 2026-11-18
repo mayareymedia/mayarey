@@ -14,250 +14,527 @@
 <meta property="og:url" content="https://mayarey.vercel.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAF5F0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%239B1B30'/><text x='50' y='66' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>M</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FBF6F0}
-a{color:var(--accent)}a:hover{color:var(--accent2)}
-[style*="background: #FBF6F0"]{background:var(--bg)!important}
-[style*="background: #2A1A14"]{background:var(--band)!important}
-[style*="background: #F3E3D7"]{background:var(--soft)!important}
-[style*="color: #2A1A14"]{color:var(--ink)!important}
-[style*="color: #5E463C"]{color:var(--muted)!important}
-[style*="color: #8A3B22"],[style*="color: #7E3520"]{color:var(--accent2)!important}
-[style*="border: 1.5px solid #C9A894"]{border-color:var(--line)!important}
-[style*="border-top: 1px solid #E3D3C6"]{border-top-color:var(--line)!important}
-[style*="border: 2px solid #2A1A14"]{border-color:var(--ink)!important}
-[style*="DM Serif Display"]{font-family:var(--display)!important;letter-spacing:-0.01em}
-[style*="font-family: 'DM Sans'"]{font-family:var(--body)!important}
-[style*="top: 12px; left: 12px"]{top:auto!important;bottom:12px!important}
-[style*="text-shadow: 0 2px 12px"]{color:#FFFFFF!important;text-shadow:none!important;-webkit-text-stroke:0.12em #000000;paint-order:stroke fill}
-</style>
 
 <style>
-html{scroll-behavior:smooth}
-img{max-width:100%}
-@media (max-width: 700px){
-header[style]{padding:16px 20px!important}
-header nav a:not([href="#contact"]){display:none}
-header nav a[href="#contact"]{padding:10px 18px!important;font-size:15px}
-section#top[style]{padding:20px 20px 48px!important;gap:32px!important}
-section#top h1{font-size:42px!important}
-section#top p[style*="font-size: 19px"]{font-size:17px!important}
-section#top div[style*="gap: 40px"]{display:grid!important;grid-template-columns:1fr 1fr;gap:18px 16px!important}
-section#top div[style*="gap: 40px"] span[style*="font-size: 36px"]{font-size:30px!important}
-section[aria-label="Brands I've worked with"]{padding:32px 20px!important}
-section[aria-label="Brands I've worked with"] div[style*="gap: 28px 48px"]{gap:20px 28px!important}
-section[aria-label="Brands I've worked with"] img{transform:scale(.85)}
-section#work[style]{padding:56px 16px!important;gap:28px!important}
-section#work h2{font-size:38px!important}
-[style*="repeat(auto-fill, minmax(260px"]{grid-template-columns:1fr 1fr!important;gap:22px 12px!important}
-[style*="repeat(auto-fill, minmax(260px"] h3{font-size:16px!important}
-[style*="repeat(auto-fill, minmax(260px"] p{font-size:13px!important}
-[style*="repeat(auto-fill, minmax(260px"] article > a:last-child{font-size:13px!important}
-[style*="repeat(auto-fill, minmax(260px"] span[style*="font-size: 13px"]{font-size:11px!important;padding:3px 8px!important}
-[style*="repeat(auto-fill, minmax(260px"] [style*="top: 12px; left: 12px"]{left:8px!important;bottom:8px!important;transform:scale(.8);transform-origin:left bottom}
-section[aria-label="Why brands work with me"]{padding:0 20px 56px!important}
-section[aria-label="Why brands work with me"] h2{font-size:32px!important}
-section#services[style]{padding:56px 20px!important}
-section#services h2{font-size:38px!important}
-section#about[style]{padding:56px 20px!important;gap:28px!important}
-section#about img{height:380px!important}
-section#about h2{font-size:38px!important}
-section#contact[style]{padding:56px 20px!important}
-section#contact a{width:100%;box-sizing:border-box;text-align:center}
+/* ============ Tokens ============ */
+:root{
+  --bg:#FAF5F0;        /* warm cream */
+  --soft:#F1E2D8;      /* deeper cream */
+  --ink:#2B1A14;       /* espresso */
+  --band:#3A2419;      /* espresso band */
+  --muted:#6B4E40;
+  --accent:#9B1B30;    /* cranberry */
+  --accent-dark:#7E1526;
+  --line:#CDAE9A;
+  --display:'Fraunces', Georgia, serif;
+  --body:'DM Sans', system-ui, -apple-system, sans-serif;
+  --gutter:20px;
+  --max:1180px;
 }
 
+/* ============ Base ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+section{scroll-margin-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+a:hover{color:var(--accent-dark)}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.nowrap{white-space:nowrap}
+.serif{font-family:var(--display);font-weight:400;letter-spacing:-0.015em}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.meta{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.textlink{font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ============ Header ============ */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(250,245,240,.92);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.scrolled{border-bottom-color:rgba(205,174,154,.6)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--display);font-size:24px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.logo:hover{color:var(--ink)}
+.nav{display:flex;gap:28px;align-items:center;font-size:15px;font-weight:500}
+.nav a{color:var(--ink);text-decoration:none}
+.nav a:hover{color:var(--accent)}
+.nav .nav-section{display:none}
+.nav .nav-cta{color:var(--accent);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px}
+
+/* ============ Hero ============ */
+.hero{padding:28px 0 64px}
+.hero .wrap{display:grid;gap:22px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,12vw,92px);line-height:.98;letter-spacing:-.025em}
+.hero h1 em{color:var(--accent)}
+.hero-photo{border-radius:20px;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;margin:6px 0 4px}
+.hero-intro{font-size:17px;color:var(--muted);max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.btn{display:inline-block;background:var(--accent);color:var(--bg);padding:15px 26px;border-radius:12px;font-weight:700;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--accent-dark);color:var(--bg);transform:translateY(-1px)}
+.hero-proof{margin-top:18px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:10px}
+.big-number{font-family:var(--display);font-weight:400;font-size:clamp(64px,18vw,104px);line-height:.9;letter-spacing:-.03em;color:var(--accent)}
+.big-number small{display:block;line-height:1.45;font-family:var(--body);font-size:15px;font-weight:500;letter-spacing:0;color:var(--ink);margin-top:10px}
+.hero-proof p{font-size:15px;color:var(--muted);max-width:520px}
+.hero-proof b{color:var(--ink)}
+
+/* ============ Brands band ============ */
+.brands{background:var(--band);color:var(--bg);padding:44px 0 40px}
+.brands .wrap{display:grid;gap:26px;justify-items:center;text-align:center}
+.brands .eyebrow{color:#E8C9B6}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:22px 30px;max-width:980px}
+.logos img{width:auto;opacity:.9}
+.brands p.note{font-size:15px;color:#E9D5C7;max-width:520px}
+
+/* ============ Section heads ============ */
+.section{padding:72px 0}
+.section-head{display:grid;gap:12px;margin-bottom:36px;max-width:640px}
+.section-head h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,9vw,60px);line-height:1.02;letter-spacing:-.02em}
+.section-head p{color:var(--muted);font-size:16px}
+.section-head .eyebrow{color:var(--accent);font-size:13px}
+
+/* ============ Video thumbnails ============ */
+.thumb{position:relative;display:block;border-radius:16px;overflow:hidden;background:#EAD9CC;container-type:inline-size;isolation:isolate}
+.thumb img.shot{width:100%;aspect-ratio:9/16;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.thumb .logo-chip{position:absolute;left:10px;bottom:10px;background:#fff;border-radius:8px;padding:6px 9px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(42,26,20,.18)}
+.thumb .logo-chip.dark{background:var(--ink)}
+.thumb .logo-chip img{height:16px;width:auto}
+.thumb .logo-round{position:absolute;left:10px;bottom:10px;width:36px;height:36px;border-radius:50%;box-shadow:0 2px 8px rgba(42,26,20,.25)}
+.thumb .watch{position:absolute;right:10px;bottom:10px;background:rgba(43,26,20,.78);color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;padding:6px 10px;border-radius:8px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+.thumb:hover img.shot{transform:scale(1.04)}
+.thumb:hover .watch,.thumb:focus-visible .watch{opacity:1;transform:none}
+/* On-video hook text: white with a black outline, like the real videos */
+.hook{position:absolute;top:13%;left:4px;right:4px;text-align:center;color:#fff;font-weight:700;line-height:1;letter-spacing:-.02em;white-space:nowrap;-webkit-text-stroke:.12em #000;paint-order:stroke fill}
+.hook span{display:block}
+@media (hover:none){.case .thumb .watch{opacity:1;transform:none}}
+@media (max-width:759px){.hero .eyebrow .sep{display:none}.hero .eyebrow .city{display:block;margin-top:4px}}
+
+/* ============ Featured case studies ============ */
+.featured{display:grid;gap:64px;margin-bottom:72px}
+.case{display:grid;gap:26px;align-items:center}
+.case .thumb{max-width:250px;width:100%;justify-self:center;border-radius:20px}
+.case-body{display:grid;gap:14px}
+.case-body h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,7vw,44px);line-height:1.05;letter-spacing:-.015em}
+.case-stat{font-family:var(--display);font-size:clamp(56px,15vw,88px);line-height:.9;letter-spacing:-.03em;color:var(--accent)}
+.case-stat small{font-family:var(--body);font-size:16px;font-weight:500;letter-spacing:0;color:var(--muted);margin-left:6px}
+.case dl{margin:6px 0 4px;display:grid;gap:14px}
+.case dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.case dd{margin:2px 0 0;color:var(--muted)}
+.case-body > p{color:var(--muted)}
+
+/* ============ More work grid ============ */
+.more-title{font-family:var(--display);font-weight:400;font-size:28px;letter-spacing:-.01em;padding-top:28px;border-top:1px solid var(--line);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 14px}
+.item{display:grid;gap:6px;align-content:start}
+.item .thumb{margin-bottom:6px}
+.item h3{font-size:16px;font-weight:700;line-height:1.25}
+.item p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.item .views{font-size:14px;font-weight:700;color:var(--accent)}
+.item .meta{font-size:10.5px}
+
+/* ============ Why me ============ */
+.why .wrap{display:grid;gap:40px}
+.why h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,9vw,60px);line-height:1.02;letter-spacing:-.02em}
+.pull{display:grid;gap:8px;align-content:start}
+.pull .big-number small{font-size:15px;color:var(--muted);max-width:280px}
+.why-points{display:grid;gap:28px}
+.why-points h3{font-size:19px;margin-bottom:6px}
+.why-points p{color:var(--muted)}
+
+/* ============ Services ============ */
+.services{background:var(--soft)}
+.svc-group{display:grid;gap:18px;padding:30px 0;border-top:1px solid var(--line)}
+.svc-group:last-child{border-bottom:1px solid var(--line)}
+.svc-label{font-family:var(--display);font-size:clamp(34px,8vw,48px);line-height:1;letter-spacing:-.02em}
+.svc-label em{color:var(--accent)}
+.svc-items{display:grid;gap:22px}
+.svc-items h3{font-size:18px;margin-bottom:4px}
+.svc-items p{color:var(--muted);font-size:16px}
+
+/* ============ About ============ */
+.about .wrap{display:grid;gap:36px}
+.about-photos{position:relative;padding-bottom:56px;max-width:460px}
+.about-photos .main{width:82%;aspect-ratio:4/5;object-fit:cover;object-position:50% 35%;border-radius:20px}
+.about-photos .candid{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:3/4;object-fit:cover;object-position:55% 50%;border-radius:16px;border:6px solid var(--bg);transform:rotate(3deg);box-shadow:0 10px 30px rgba(42,26,20,.18)}
+.about-text{display:grid;gap:18px;max-width:600px}
+.about-text h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,8.5vw,56px);line-height:1.04;letter-spacing:-.02em}
+.about-text p{font-size:17.5px;color:var(--muted);line-height:1.7}
+.about-text .signature{font-family:var(--display);font-style:italic;font-size:40px;color:var(--accent);line-height:1;margin-top:6px}
+.about-text .eyebrow{color:var(--accent);font-size:13px;line-height:1.4}
+.contact .eyebrow{font-size:13px;line-height:1.4}
+
+/* ============ Contact ============ */
+.contact{background:var(--accent);color:var(--bg);padding:84px 0 72px;text-align:center}
+.contact .wrap{display:grid;gap:20px;justify-items:center}
+.contact .eyebrow{color:#F6D9DE}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,10vw,68px);line-height:1.02;letter-spacing:-.02em;max-width:760px}
+.contact p{font-size:18px}
+.email{display:inline-block;color:var(--bg);font-family:var(--display);font-size:clamp(22px,6.4vw,40px);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;margin:10px 0 16px;word-break:break-word}
+.email:hover{color:#fff;text-decoration-thickness:3px}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;font-size:15px;font-weight:700}
+.socials a{color:var(--bg);text-decoration:none;border-bottom:1.5px solid rgba(250,245,240,.45);padding-bottom:2px}
+.socials a:hover{color:#fff;border-bottom-color:#fff}
+
+/* ============ Scroll reveal ============ */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.thumb img.shot{transition:none}}
+
+/* ============ Tablet and up ============ */
+@media (min-width:760px){
+  :root{--gutter:40px}
+  .site-header .wrap{height:72px}
+  .logo{font-size:27px}
+  .nav .nav-section{display:inline}
+  .hero{padding:56px 0 96px}
+  .hero .wrap{grid-template-columns:1.15fr .85fr;grid-template-areas:"eyebrow photo" "title photo" "intro photo" "actions photo" "proof proof";column-gap:56px;row-gap:24px;align-items:start}
+  .hero .eyebrow{grid-area:eyebrow;align-self:end}
+  .hero h1{grid-area:title}
+  .hero-photo{grid-area:photo;aspect-ratio:29/28;object-position:50% 0%;margin:0;align-self:center;border-radius:24px}
+  .hero-intro{grid-area:intro;font-size:19px}
+  .hero-actions{grid-area:actions}
+  .hero-proof{grid-area:proof;grid-template-columns:auto 1fr;align-items:end;column-gap:40px;margin-top:40px}
+  .hero-proof p{font-size:16px;padding-bottom:8px}
+  .logos{gap:28px 46px}
+  .section{padding:112px 0}
+  .section-head{margin-bottom:56px}
+  .case{grid-template-columns:minmax(260px,360px) 1fr;gap:64px}
+  .case .thumb{max-width:none;justify-self:stretch}
+  .case.flip{grid-template-columns:1fr minmax(240px,320px)}
+  .case.flip .thumb{order:2}
+  .featured{gap:96px;margin-bottom:112px}
+  .grid{grid-template-columns:repeat(3,1fr);gap:44px 28px}
+  .item h3{font-size:18px}
+  .item p{font-size:14.5px}
+  .item .meta{font-size:11.5px}
+  .why .wrap{grid-template-columns:1fr 1.4fr;column-gap:72px;row-gap:48px}
+  .why h2{grid-column:1/-1;max-width:760px}
+  .pull{position:sticky;top:120px}
+  .svc-group{grid-template-columns:1fr 1.6fr;gap:48px;padding:44px 0}
+  .about .wrap{grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+  .contact{padding:120px 0 104px}
+}
+@media (min-width:1100px){
+  .grid{grid-template-columns:repeat(6,1fr)}
+  .grid .item{grid-column:span 2}
+}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-<div style="--bg: #FAF5F0; --ink: #2B1A14; --band: #3A2419; --soft: #F1E2D8; --muted: #6B4E40; --accent: #9B1B30; --accent2: #7A3B26; --line: #CDAE9A; --display: 'Fraunces', Georgia, serif; --body: 'DM Sans', system-ui, sans-serif; font-family: 'DM Sans', system-ui, sans-serif; color: #2A1A14; background: #FBF6F0; min-height: 100vh">
-
-<header style="max-width: 1200px; margin: 0 auto; padding: 24px 40px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
-<a href="#top" style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #2A1A14; text-decoration: none">Maya Rey</a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 16px; font-weight: 500; align-items: center">
-<a href="#work" style="color: #2A1A14; text-decoration: none">Work</a>
-<a href="#services" style="color: #2A1A14; text-decoration: none">Services</a>
-<a href="#about" style="color: #2A1A14; text-decoration: none">About</a>
-<a href="#contact" style="color: #FFFFFF; background: #9B1B30; padding: 11px 22px; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 14px rgba(155, 27, 48, 0.35)">Work with me</a>
-</nav>
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">Maya Rey</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work" class="nav-section">Work</a>
+      <a href="#services" class="nav-section">Services</a>
+      <a href="#about" class="nav-section">About</a>
+      <a href="#contact" class="nav-cta">Work with me</a>
+    </nav>
+  </div>
 </header>
 
-<section id="top" style="max-width: 1200px; margin: 0 auto; padding: 48px 40px 72px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
-<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8A3B22">Creator and content strategist · Tel Aviv</p>
-<h1 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(44px, 6vw, 76px); line-height: 1.02">Short-form video, <em style="color: #9B1B30">from strategy to screen.</em></h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #5E463C; max-width: 600px">I'm Maya Rey, a creator and content strategist with 6+ years in social media. I help tech and consumer brands figure out what to post, then I make it myself: UGC, ads, product videos, on-site shoots and event coverage, in English and Hebrew.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a href="#work" style="background: #9B1B30; color: #FBF6F0; padding: 15px 28px; border-radius: 999px; font-weight: 700; text-decoration: none">See my work</a>
-<a href="#contact" style="border: 2px solid #2A1A14; color: #2A1A14; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none">Contact for rates</a>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 40px; padding-top: 16px; border-top: 1px solid #E3D3C6">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 36px">50M+</span><span style="font-size: 14px; color: #5E463C">views across organic and branded content</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 36px">100+</span><span style="font-size: 14px; color: #5E463C">brands worked with</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 36px">120K+</span><span style="font-size: 14px; color: #5E463C">followers on Instagram + TikTok</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 36px">6+ yrs</span><span style="font-size: 14px; color: #5E463C">in social media</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 36px">50+</span><span style="font-size: 14px; color: #5E463C">countries filmed</span></div>
-</div>
-</div>
-<img src="images/hero-mid.jpg" alt="Maya smiling at the camera in a café, holding up two Aroma drinks" style="flex: 1 1 460px; min-width: 0; height: auto; aspect-ratio: 29 / 28; align-self: center; border-radius: 24px; object-fit: cover; object-position: 50% 0%; display: block">
+<main>
+
+<section id="top" class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Creator and content strategist<span class="sep"> · </span><span class="nowrap city">Tel Aviv</span></p>
+    <h1>Short-form video, <em>from strategy to screen.</em></h1>
+    <img class="hero-photo" src="images/hero-mid.jpg" alt="Maya smiling at the camera in a café, holding up two Aroma drinks" fetchpriority="high">
+    <p class="hero-intro">I'm Maya Rey, a creator and content strategist with 6+ years in social media. I help tech and consumer brands figure out what to post, then I make it myself: UGC, ads, product videos, on-site shoots and event coverage, in English and Hebrew.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn">See my work</a>
+      <a href="#contact" class="textlink">Contact for rates</a>
+    </div>
+    <div class="hero-proof">
+      <div class="big-number">50M+<small>views across organic and branded content</small></div>
+      <p><b>100+ brands</b> worked with, <b>120K+ followers</b> on Instagram and TikTok, <b>6+ years</b> in social media and <b>50+ countries</b> filmed.</p>
+    </div>
+  </div>
 </section>
 
-<section aria-label="Brands I've worked with" style="background: #2A1A14; color: #FBF6F0; padding: 40px">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center">
-<p style="margin: 0; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #E8C9B6">Standout brands I've created for</p>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 48px">
-<img src="images/hostelworld.png" alt="Hostelworld" style="height: 30px; width: auto; display: block">
-<img src="images/jetpac.png" alt="Jetpac eSIM" style="height: 46px; width: auto; display: block">
-<img src="images/booking.png" alt="Booking.com" style="height: 26px; width: auto; display: block">
-<img src="images/airalo.png" alt="Airalo" style="height: 32px; width: auto; display: block">
-<img src="images/birthright.png" alt="Taglit Birthright Israel" style="height: 40px; width: auto; display: block">
-<img src="images/jpost.png" alt="The Jerusalem Post" style="height: 26px; width: auto; display: block">
-<img src="images/worldpackers.png" alt="Worldpackers" style="height: 32px; width: auto; display: block">
-<img src="images/lingopie.png" alt="Lingopie" style="height: 32px; width: auto; display: block">
-<img src="images/masa.png" alt="Masa Israel Journey" style="height: 40px; width: auto; display: block">
-<img src="images/mono-maccabi.png" alt="Maccabi USA" style="height: 36px; width: auto; display: block">
-<img src="images/talkisrael.png" alt="Talk Israel" style="height: 46px; width: auto; display: block">
-<img src="images/tropicfeel.png" alt="Tropicfeel" style="height: 26px; width: auto; display: block">
-<img src="images/trtl.png" alt="trtl" style="height: 38px; width: auto; display: block">
-<img src="images/simply.png" alt="Simply" style="height: 32px; width: auto; display: block">
-</div>
-<p style="margin: 0; font-size: 17px; color: #F3E3D7">Plus hotels, restaurants, jewelry, extreme sports and local businesses. 100+ brands in total.</p>
-</div>
+<section class="brands" aria-label="Brands I've worked with">
+  <div class="wrap">
+    <p class="eyebrow">Standout brands I've created for</p>
+    <div class="logos">
+      <img src="images/hostelworld.png" alt="Hostelworld" style="height:26px">
+      <img src="images/jetpac.png" alt="Jetpac eSIM" style="height:40px">
+      <img src="images/booking.png" alt="Booking.com" style="height:22px">
+      <img src="images/airalo.png" alt="Airalo" style="height:28px">
+      <img src="images/birthright.png" alt="Taglit Birthright Israel" style="height:34px">
+      <img src="images/jpost.png" alt="The Jerusalem Post" style="height:22px">
+      <img src="images/worldpackers.png" alt="Worldpackers" style="height:28px">
+      <img src="images/lingopie.png" alt="Lingopie" style="height:28px">
+      <img src="images/masa.png" alt="Masa Israel Journey" style="height:34px">
+      <img src="images/mono-maccabi.png" alt="Maccabi USA" style="height:31px">
+      <img src="images/talkisrael.png" alt="Talk Israel" style="height:40px">
+      <img src="images/tropicfeel.png" alt="Tropicfeel" style="height:22px">
+      <img src="images/trtl.png" alt="trtl" style="height:33px">
+      <img src="images/simply.png" alt="Simply" style="height:28px">
+    </div>
+    <p class="note">Plus hotels, restaurants, jewelry, extreme sports and local businesses. 100+ brands in total.</p>
+  </div>
 </section>
 
-<section id="work" style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
-<h2 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 48px">Selected work</h2>
-<p style="margin: 0; font-size: 16px; color: #5E463C; max-width: 440px">Eight projects, 16M+ combined views. Tap any video to watch it in full.</p>
-</div>
-<div class="work-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 32px">
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2>The videos that did the talking.</h2>
+      <p>Eight projects, 16M+ combined views. Tap any video to watch it in full.</p>
+    </div>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: -1">
-<a href="https://www.instagram.com/reel/DZiQuexKc2O/" target="_blank" rel="noopener" aria-label="Watch the Jetpac eSIM reel on Instagram" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/jet-final.jpg" alt="Maya smiling at the camera in an airport gate area, in a paid ad for Jetpac eSIM" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 21px; font-size: 8cqw; margin-bottom: 2px">Using your phone</span><span style="display: block; font-size: 38px; font-size: 15cqw">Abroad</span></span><img src="images/jetpac-logo.png" alt="Jetpac eSIM" style="position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.25); display: block"></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Apps and tech</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Paid ad</span></div>
-<h3 style="margin: 0; font-size: 20px">Jetpac eSIM</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Paid ad for Jetpac's travel eSIM, showing how easy it is to stay connected abroad.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">1.1M views</p>
-<a href="https://www.instagram.com/reel/DZiQuexKc2O/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on Instagram</a>
-</article>
+    <div class="featured">
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 4">
-<a href="https://www.instagram.com/reel/DGdHhzHRNCA/" target="_blank" rel="noopener" aria-label="Watch the Hostelworld reel on Instagram" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/hostel-final.jpg" alt="Maya talking to camera outdoors, holding a mic, in a video for Hostelworld" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 17px; font-size: 6.5cqw; margin-bottom: 2px">Travel hack:</span><span style="display: block; font-size: 27px; font-size: 10.5cqw">Group Chats</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 7px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/hw-logo.png" alt="Hostelworld" style="height: 18px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Travel</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Paid collab</span></div>
-<h3 style="margin: 0; font-size: 20px">Hostelworld</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Paid travel hack showing how Hostelworld's group chats help solo travelers meet people before they arrive.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">42K views</p>
-<a href="https://www.instagram.com/reel/DGdHhzHRNCA/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on Instagram</a>
-</article>
+      <article class="case reveal">
+        <a class="thumb" href="https://www.tiktok.com/@fayetravelinsurance/video/7384070121951776046" target="_blank" rel="noopener" aria-label="Watch the Faye Travel Insurance video on TikTok">
+          <img class="shot" src="images/faye-group-center.jpg" alt="The Faye team in matching purple tie-dye shirts, posing in front of the Faye logo at their Tel Aviv office" loading="lazy">
+          <span class="hook"><span style="font-size:15cqw">Where!</span></span>
+          <span class="logo-chip"><img src="images/faye-logo.png" alt="Faye"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <div class="case-body">
+          <p class="meta">Apps and tech · Strategy and filming</p>
+          <h3>Faye Travel Insurance</h3>
+          <p class="case-stat">14.3M<small>views</small></p>
+          <dl>
+            <div><dt>The idea</dt><dd>Take a viral trend and adapt it to promote our product.</dd></div>
+            <div><dt>What I did</dt><dd>As Faye's social media manager, I planned it and filmed it with the whole office.</dd></div>
+            <div><dt>The result</dt><dd>It was the brand's first TikTok, became its top-performing video, and was later used in paid ads too.</dd></div>
+          </dl>
+          <a class="textlink" href="https://www.tiktok.com/@fayetravelinsurance/video/7384070121951776046" target="_blank" rel="noopener">Watch on TikTok</a>
+        </div>
+      </article>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 6">
-<a href="https://www.instagram.com/reel/DVemhUgiLRD/" target="_blank" rel="noopener" aria-label="Watch the Lingopie reel on Instagram" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/ling-final.jpg" alt="Maya in sunglasses and a denim jacket on a Tel Aviv street, holding a mic, in a video for Lingopie" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 23px; font-size: 9cqw; margin-bottom: 2px">Guessing where</span><span style="display: block; font-size: 23px; font-size: 9cqw">people are from</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 7px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/lingopie2-color.png" alt="Lingopie" style="height: 18px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Apps and tech</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">EdTech</span></div>
-<h3 style="margin: 0; font-size: 20px">Lingopie</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Street interview game guessing where people are from, made for Lingopie, an edtech app for learning languages.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">68.9K views</p>
-<a href="https://www.instagram.com/reel/DVemhUgiLRD/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on Instagram</a>
-</article>
+      <article class="case flip reveal">
+        <a class="thumb" href="https://www.instagram.com/reel/DZiQuexKc2O/" target="_blank" rel="noopener" aria-label="Watch the Jetpac eSIM reel on Instagram">
+          <img class="shot" src="images/jet-final.jpg" alt="Maya smiling at the camera in an airport gate area, in a paid ad for Jetpac eSIM" loading="lazy">
+          <span class="hook"><span style="font-size:8cqw;margin-bottom:2px">Using your phone</span><span style="font-size:15cqw">Abroad</span></span>
+          <img class="logo-round" src="images/jetpac-logo.png" alt="Jetpac eSIM">
+          <span class="watch">▶ Watch</span>
+        </a>
+        <div class="case-body">
+          <p class="meta">Apps and tech · Paid ad</p>
+          <h3>Jetpac eSIM</h3>
+          <p class="case-stat">1.1M<small>views</small></p>
+          <p>Paid ad for Jetpac's travel eSIM, showing how easy it is to stay connected abroad.</p>
+          <a class="textlink" href="https://www.instagram.com/reel/DZiQuexKc2O/" target="_blank" rel="noopener">Watch on Instagram</a>
+        </div>
+      </article>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 2">
-<a href="https://www.instagram.com/reel/DUjgjFSDW_L/" target="_blank" rel="noopener" aria-label="Watch the Birthright Israel reel on Instagram" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/bright-final.jpg" alt="Maya giving a thumbs up outside an AM:PM store on a Tel Aviv street, for Birthright Israel" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 17px; font-size: 6.5cqw; margin-bottom: 2px">Tel Aviv's 24/7 go-to</span><span style="display: block; font-size: 27px; font-size: 10.5cqw">AM:PM</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 6px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/birthright-logo.png" alt="Taglit Birthright Israel" style="height: 22px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Brand content</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Paid collab</span></div>
-<h3 style="margin: 0; font-size: 20px">Birthright Israel</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Paid Tel Aviv local tip for Birthright Israel, spotlighting AM:PM, the city's 24/7 convenience store.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">330K views</p>
-<a href="https://www.instagram.com/reel/DUjgjFSDW_L/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on Instagram</a>
-</article>
+    </div>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 0">
-<a href="https://www.tiktok.com/@fayetravelinsurance/video/7384070121951776046" target="_blank" rel="noopener" aria-label="Watch the Faye Travel Insurance video on TikTok" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/faye-group-center.jpg" alt="The Faye team in matching purple tie-dye shirts, posing in front of the Faye logo at their Tel Aviv office" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 38px; font-size: 15cqw">Where!</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 7px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/faye-logo.png" alt="Faye" style="height: 18px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Apps and tech</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Strategy and filming</span></div>
-<h3 style="margin: 0; font-size: 20px">Faye Travel Insurance</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">As Faye's social media manager, I took a viral trend, adapted it to promote our product and filmed it with the whole office. It was the brand's first TikTok, became its top-performing video, and was later used in paid ads too.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">14.3M views</p>
-<a href="https://www.tiktok.com/@fayetravelinsurance/video/7384070121951776046" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on TikTok</a>
-</article>
+    <h3 class="more-title reveal">More from the reel</h3>
+    <div class="grid">
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 7">
-<a href="https://www.tiktok.com/@mayareyrey/video/7314698317022104833" target="_blank" rel="noopener" aria-label="Watch the St Christopher's Inns video on TikTok" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/stchris-pad.jpg" alt="Maya in a beanie and scarf sipping from a mug at a Vienna Christmas market" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 55% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 23px; font-size: 9cqw; margin-bottom: 2px">The best hotel</span><span style="display: block; font-size: 23px; font-size: 9cqw">in Vienna</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 7px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/stchris-color.png" alt="St Christopher's Inns" style="height: 34px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Hotels and restaurants</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Paid collab</span></div>
-<h3 style="margin: 0; font-size: 20px">St Christopher's Inns</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Paid stay feature for St Christopher's Inns in Vienna, showing the hotel and the city around it.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">80K views</p>
-<a href="https://www.tiktok.com/@mayareyrey/video/7314698317022104833" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on TikTok</a>
-</article>
+      <article class="item reveal">
+        <a class="thumb" href="https://www.instagram.com/reel/DUjgjFSDW_L/" target="_blank" rel="noopener" aria-label="Watch the Birthright Israel reel on Instagram">
+          <img class="shot" src="images/bright-final.jpg" alt="Maya giving a thumbs up outside an AM:PM store on a Tel Aviv street, for Birthright Israel" loading="lazy">
+          <span class="logo-chip"><img src="images/birthright-logo.png" alt="Taglit Birthright Israel" style="height:19px"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Brand content · Paid collab</p>
+        <h3>Birthright Israel</h3>
+        <p>Paid Tel Aviv local tip for Birthright Israel, spotlighting AM:PM, the city's 24/7 convenience store.</p>
+        <p class="views">330K views</p>
+        <a class="textlink" href="https://www.instagram.com/reel/DUjgjFSDW_L/" target="_blank" rel="noopener" style="font-size:14px">Watch on Instagram</a>
+      </article>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 5">
-<a href="https://vt.tiktok.com/ZSppVBG7v/" target="_blank" rel="noopener" aria-label="Watch the Jevory video on TikTok" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/jevory-sat.jpg" alt="Maya and a friend smiling at the camera, Maya pointing to her Jevory necklace" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 55% 50%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 17px; font-size: 6.5cqw; margin-bottom: 2px">Miles apart,</span><span style="display: block; font-size: 27px; font-size: 10.5cqw">Still Matching</span></span><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; padding: 6px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.18)"><img src="images/jevory-logo.png" alt="Jevory" style="height: 20px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Jewelry</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">UGC</span></div>
-<h3 style="margin: 0; font-size: 20px">Jevory</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Talk-to-camera video about long-distance friendship, featuring Jevory's matching necklaces.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">82.2K views</p>
-<a href="https://vt.tiktok.com/ZSppVBG7v/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on TikTok</a>
-</article>
+      <article class="item reveal">
+        <a class="thumb" href="https://www.instagram.com/reel/CrOOS8cM5ck/" target="_blank" rel="noopener" aria-label="Watch the Matteo video on Instagram">
+          <img class="shot" src="images/matteo-final.jpg" alt="Maya sipping a drink at Matteo, an Italian restaurant in Tel Aviv, in front of a green plant wall" loading="lazy" style="object-position:50% 0%">
+          <span class="logo-chip dark"><img src="images/matteo-color.png" alt="Matteo" style="height:19px"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Restaurants · Local business</p>
+        <h3>Matteo</h3>
+        <p>Restaurant video at Matteo, an Italian spot in Tel Aviv, showing off the food, drinks and atmosphere.</p>
+        <p class="views">218K views</p>
+        <a class="textlink" href="https://www.instagram.com/reel/CrOOS8cM5ck/" target="_blank" rel="noopener" style="font-size:14px">Watch on Instagram</a>
+      </article>
 
-<article style="display: flex; flex-direction: column; gap: 12px; order: 8">
-<a href="https://www.instagram.com/reel/CrOOS8cM5ck/" target="_blank" rel="noopener" aria-label="Watch the Matteo video on Instagram" style="display: block; position: relative; border-radius: 18px; container-type: inline-size"><img src="images/matteo-final.jpg" alt="Maya sipping a drink at Matteo, an Italian restaurant in Tel Aviv, in front of a green plant wall" loading="lazy" style="width: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: 50% 0%; border-radius: 18px; display: block; background: #EAD9CC"><span style="position: absolute; top: 13%; left: 4px; right: 4px; text-align: center; color: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.55)"><span style="display: block; font-size: 17px; font-size: 6.5cqw; margin-bottom: 2px">Italian restaurant in</span><span style="display: block; font-size: 27px; font-size: 10.5cqw">Tel Aviv</span></span><span style="position: absolute; top: 12px; left: 12px; background: #2A1A14; padding: 7px 12px; border-radius: 999px; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(42, 26, 20, 0.3)"><img src="images/matteo-color.png" alt="Matteo" style="height: 22px; width: auto; display: block"></span></a>
-<div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="background: #9B1B30; color: #FBF6F0; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Restaurants</span><span style="background: #F3E3D7; color: #7E3520; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Local business</span></div>
-<h3 style="margin: 0; font-size: 20px">Matteo</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5E463C">Restaurant video at Matteo, an Italian spot in Tel Aviv, showing off the food, drinks and atmosphere.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 700; color: #8A3B22">218K views</p>
-<a href="https://www.instagram.com/reel/CrOOS8cM5ck/" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 700">Watch on Instagram</a>
-</article>
+      <article class="item reveal">
+        <a class="thumb" href="https://vt.tiktok.com/ZSppVBG7v/" target="_blank" rel="noopener" aria-label="Watch the Jevory video on TikTok">
+          <img class="shot" src="images/jevory-sat.jpg" alt="Maya and a friend smiling at the camera, Maya pointing to her Jevory necklace" loading="lazy" style="object-position:55% 50%">
+          <span class="logo-chip"><img src="images/jevory-logo.png" alt="Jevory" style="height:17px"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Jewelry · UGC</p>
+        <h3>Jevory</h3>
+        <p>Talk-to-camera video about long-distance friendship, featuring Jevory's matching necklaces.</p>
+        <p class="views">82.2K views</p>
+        <a class="textlink" href="https://vt.tiktok.com/ZSppVBG7v/" target="_blank" rel="noopener" style="font-size:14px">Watch on TikTok</a>
+      </article>
 
-</div>
+      <article class="item reveal">
+        <a class="thumb" href="https://www.tiktok.com/@mayareyrey/video/7314698317022104833" target="_blank" rel="noopener" aria-label="Watch the St Christopher's Inns video on TikTok">
+          <img class="shot" src="images/stchris-pad.jpg" alt="Maya in a beanie and scarf sipping from a mug at a Vienna Christmas market" loading="lazy" style="object-position:55% 50%">
+          <span class="logo-chip"><img src="images/stchris-color.png" alt="St Christopher's Inns" style="height:26px"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Hotels and restaurants · Paid collab</p>
+        <h3>St Christopher's Inns</h3>
+        <p>Paid stay feature for St Christopher's Inns in Vienna, showing the hotel and the city around it.</p>
+        <p class="views">80K views</p>
+        <a class="textlink" href="https://www.tiktok.com/@mayareyrey/video/7314698317022104833" target="_blank" rel="noopener" style="font-size:14px">Watch on TikTok</a>
+      </article>
+
+      <article class="item reveal">
+        <a class="thumb" href="https://www.instagram.com/reel/DVemhUgiLRD/" target="_blank" rel="noopener" aria-label="Watch the Lingopie reel on Instagram">
+          <img class="shot" src="images/ling-final.jpg" alt="Maya in sunglasses and a denim jacket on a Tel Aviv street, holding a mic, in a video for Lingopie" loading="lazy">
+          <span class="logo-chip"><img src="images/lingopie2-color.png" alt="Lingopie"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Apps and tech · EdTech</p>
+        <h3>Lingopie</h3>
+        <p>Street interview game guessing where people are from, made for Lingopie, an edtech app for learning languages.</p>
+        <p class="views">68.9K views</p>
+        <a class="textlink" href="https://www.instagram.com/reel/DVemhUgiLRD/" target="_blank" rel="noopener" style="font-size:14px">Watch on Instagram</a>
+      </article>
+
+      <article class="item reveal">
+        <a class="thumb" href="https://www.instagram.com/reel/DGdHhzHRNCA/" target="_blank" rel="noopener" aria-label="Watch the Hostelworld reel on Instagram">
+          <img class="shot" src="images/hostel-final.jpg" alt="Maya talking to camera outdoors, holding a mic, in a video for Hostelworld" loading="lazy">
+          <span class="logo-chip"><img src="images/hw-logo.png" alt="Hostelworld"></span>
+          <span class="watch">▶ Watch</span>
+        </a>
+        <p class="meta">Travel · Paid collab</p>
+        <h3>Hostelworld</h3>
+        <p>Paid travel hack showing how Hostelworld's group chats help solo travelers meet people before they arrive.</p>
+        <p class="views">42K views</p>
+        <a class="textlink" href="https://www.instagram.com/reel/DGdHhzHRNCA/" target="_blank" rel="noopener" style="font-size:14px">Watch on Instagram</a>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section aria-label="Why brands work with me" style="max-width: 1200px; margin: 0 auto; padding: 0 40px 88px; display: flex; flex-direction: column; gap: 32px">
-<h2 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 40px">Why brands work with me</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid #E3D3C6"><h3 style="margin: 0; font-size: 20px">Strategy first</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">6+ years of managing social media means every video is planned around your goal, whether that's reach, trust or sales. I've also given webinars on content creation in collaboration with TikTok Israel and Talk Israel.</p></div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid #E3D3C6"><h3 style="margin: 0; font-size: 20px">Proven reach</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">50M+ views overall. My top video hit 14.3M views, made while I was social media manager at Faye Travel Insurance. Ad campaigns for brands like Jetpac, Lingopie and the Jewish Agency have added tens of millions more.</p></div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid #E3D3C6"><h3 style="margin: 0; font-size: 20px">Two languages, two markets</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">Content in English and Hebrew, so one creator can reach US audiences, Israelis and olim.</p></div>
-</div>
+<section class="section why" aria-label="Why brands work with me" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal">I've sat on your side of the table.</h2>
+    <div class="pull reveal">
+      <div class="big-number">14.3M<small>views on my top video, made while I was social media manager at Faye Travel Insurance.</small></div>
+    </div>
+    <div class="why-points">
+      <div class="reveal">
+        <h3>Strategy first</h3>
+        <p>6+ years of managing social media means every video is planned around your goal, whether that's reach, trust or sales. I've also given webinars on content creation in collaboration with TikTok Israel and Talk Israel.</p>
+      </div>
+      <div class="reveal">
+        <h3>Proven reach</h3>
+        <p>50M+ views overall. My top video hit 14.3M views, made while I was social media manager at Faye Travel Insurance. Ad campaigns for brands like Jetpac, Lingopie and the Jewish Agency have added tens of millions more.</p>
+      </div>
+      <div class="reveal">
+        <h3>Two languages, two markets</h3>
+        <p>Content in English and Hebrew, so one creator can reach US audiences, Israelis and olim.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="services" style="background: #F3E3D7; padding: 88px 40px">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
-<h2 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 48px">How I can help</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">01</span><h3 style="margin: 0; font-size: 20px">Content strategy</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">What to post, which hooks and formats to test, and what each video needs to do. Planned with your team, then turned into content.</p></div>
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">02</span><h3 style="margin: 0; font-size: 20px">UGC for ads and brand channels</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">Hooks, testimonials and problem-solution videos, delivered fully edited or as raw footage for your team.</p></div>
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">03</span><h3 style="margin: 0; font-size: 20px">Product and app videos</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">Walkthroughs, demos and honest first impressions for apps, tech, jewelry and everyday products.</p></div>
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">04</span><h3 style="margin: 0; font-size: 20px">On-camera talent and commercials</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">The face of your brand in ads, campaigns and commercials, or as a familiar presenter on your channels. I've appeared in commercials and I'm comfortable on any set.</p></div>
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">05</span><h3 style="margin: 0; font-size: 20px">On-site shoots and event coverage</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">I come to your office, business or event, film your space, team and the moments that matter, and create the social content around it, for clients like Maccabi USA. Every shoot comes with a plan.</p></div>
-<div style="background: #FBF6F0; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: #9B1B30">06</span><h3 style="margin: 0; font-size: 20px">Travel, hotels and restaurants</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5E463C">Destinations, stays and food, filmed on real trips across 50+ countries so people want to book.</p></div>
-</div>
-</div>
+<section id="services" class="section services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Three ways I can help.</h2>
+    </div>
+
+    <div class="svc-group reveal">
+      <p class="svc-label">Plan <em>it.</em></p>
+      <div class="svc-items">
+        <div>
+          <h3>Content strategy</h3>
+          <p>What to post, which hooks and formats to test, and what each video needs to do. Planned with your team, then turned into content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-group reveal">
+      <p class="svc-label">Make <em>it.</em></p>
+      <div class="svc-items">
+        <div>
+          <h3>UGC for ads and brand channels</h3>
+          <p>Hooks, testimonials and problem-solution videos, delivered fully edited or as raw footage for your team.</p>
+        </div>
+        <div>
+          <h3>Product and app videos</h3>
+          <p>Walkthroughs, demos and honest first impressions for apps, tech, jewelry and everyday products.</p>
+        </div>
+        <div>
+          <h3>On-camera talent and commercials</h3>
+          <p>The face of your brand in ads, campaigns and commercials, or as a familiar presenter on your channels. I've appeared in commercials and I'm comfortable on any set.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-group reveal">
+      <p class="svc-label">Come <em>film it.</em></p>
+      <div class="svc-items">
+        <div>
+          <h3>On-site shoots and event coverage</h3>
+          <p>I come to your office, business or event, film your space, team and the moments that matter, and create the social content around it, for clients like Maccabi USA. Every shoot comes with a plan.</p>
+        </div>
+        <div>
+          <h3>Travel, hotels and restaurants</h3>
+          <p>Destinations, stays and food, filmed on real trips across 50+ countries so people want to book.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="about" style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
-<img src="images/about.jpg" alt="Maya smiling in a selfie at home" loading="lazy" style="flex: 1 1 300px; min-width: 0; height: 460px; border-radius: 24px; object-fit: cover; object-position: 50% 35%; display: block">
-<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-<h2 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 48px">Hi, I'm Maya</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #5E463C">I grew up in Chicago, moved to Tel Aviv, and have filmed my way through 50+ countries, often solo. My career started behind the scenes in social media management, so I know what a brand needs a video to do. Today I do both: I help brands plan their content, and I'm the one in front of the camera making it happen.</p>
-</div>
+<section id="about" class="section about">
+  <div class="wrap">
+    <div class="about-photos reveal">
+      <img class="main" src="images/about.jpg" alt="Maya smiling in a selfie at home" loading="lazy">
+      <img class="candid" src="images/stchris-pad.jpg" alt="Maya in a beanie and scarf at a Vienna Christmas market" loading="lazy">
+    </div>
+    <div class="about-text reveal">
+      <p class="eyebrow">About</p>
+      <h2>Chicago to Tel Aviv, with 50+ countries in between.</h2>
+      <p>I grew up in Chicago, moved to Tel Aviv, and have filmed my way through 50+ countries, often solo. My career started behind the scenes in social media management, so I know what a brand needs a video to do. Today I do both: I help brands plan their content, and I'm the one in front of the camera making it happen.</p>
+      <p class="signature">Maya</p>
+    </div>
+  </div>
 </section>
 
-<section id="contact" style="background: #9B1B30; color: #FBF6F0; padding: 88px 40px">
-<div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center">
-<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Now booking new projects</p>
-<h2 style="margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5vw, 60px); line-height: 1.05">Let's make something people want to save.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6">Contact me for rates.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
-<a href="mailto:mayarey.tiktok@gmail.com" style="background: #FBF6F0; color: #2A1A14; padding: 15px 28px; border-radius: 999px; font-weight: 700; text-decoration: none">mayarey.tiktok@gmail.com</a>
-<a href="https://www.instagram.com/mayarey_/" target="_blank" rel="noopener" style="border: 2px solid #FBF6F0; color: #FBF6F0; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none">Instagram @mayarey_</a>
-<a href="https://www.instagram.com/rey.ontheway/" target="_blank" rel="noopener" style="border: 2px solid #FBF6F0; color: #FBF6F0; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none">Instagram @rey.ontheway</a>
-<a href="https://www.tiktok.com/@mayareyrey" target="_blank" rel="noopener" style="border: 2px solid #FBF6F0; color: #FBF6F0; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none">TikTok @mayareyrey</a>
-<a href="https://www.linkedin.com/in/maya-reynolds/" target="_blank" rel="noopener" style="border: 2px solid #FBF6F0; color: #FBF6F0; padding: 13px 26px; border-radius: 999px; font-weight: 700; text-decoration: none">LinkedIn</a>
-</div>
-</div>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Now booking new projects</p>
+    <h2>Let's make something people want to save.</h2>
+    <p>Contact me for rates.</p>
+    <a class="email" href="mailto:mayarey.tiktok@gmail.com">mayarey.tiktok@gmail.com</a>
+    <nav class="socials" aria-label="Social">
+      <a href="https://www.instagram.com/mayarey_/" target="_blank" rel="noopener">Instagram @mayarey_</a>
+      <a href="https://www.instagram.com/rey.ontheway/" target="_blank" rel="noopener">Instagram @rey.ontheway</a>
+      <a href="https://www.tiktok.com/@mayareyrey" target="_blank" rel="noopener">TikTok @mayareyrey</a>
+      <a href="https://www.linkedin.com/in/maya-reynolds/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
 </section>
 
-</div>
+</main>
 
+<script>
+(function(){
+  var header=document.querySelector('.site-header');
+  function onScroll(){header.classList.toggle('scrolled',window.scrollY>8)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
